@@ -5,7 +5,7 @@ import '../styles/AddressList.css';
 interface AddressListProps {
     addresses: Address[];
     onEdit: (address: Address) => void;
-    onDelete: (id: string) => void;
+    onDelete: (id: number) => void;
 }
 
 export const AddressList = ({addresses, onEdit, onDelete}: AddressListProps) => {

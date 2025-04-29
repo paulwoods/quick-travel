@@ -4,7 +4,7 @@ import '../styles/AddressItem.css';
 interface AddressItemProps {
     address: Address;
     onEdit: (address: Address) => void;
-    onDelete: (id: string) => void;
+    onDelete: (id: number) => void;
 }
 
 export const AddressItem = ({address, onEdit, onDelete}: AddressItemProps) => {
