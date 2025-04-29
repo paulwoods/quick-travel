@@ -1,0 +1,27 @@
+.address-list {
+    padding: 16px 0;
+}
+
+.address-list h2 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: #333;
+    font-size: 1.25rem;
+}
+
+.empty-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px dashed #ddd;
+    color: #777;
+    text-align: center;
+    padding: 20px;
+}
+
+.empty-list p {
+    margin: 0;
+}

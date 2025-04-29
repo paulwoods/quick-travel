@@ -1,0 +1,33 @@
+.address-manager {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.address-manager-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.address-manager-header h1 {
+    margin: 0;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.add-address-btn {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.add-address-btn:hover {
+    background-color: #3a80d2;
+}
