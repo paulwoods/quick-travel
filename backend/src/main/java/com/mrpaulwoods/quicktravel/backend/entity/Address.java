@@ -3,12 +3,10 @@ package com.mrpaulwoods.quicktravel.backend.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Table;
 
-import java.util.UUID;
-
 @Table("ADDRESSES")
 public class Address {
     @Id
-    private UUID id;
+    private Long id;
     private String street;
     private String city;
     private String state;
@@ -16,11 +14,9 @@ public class Address {
     private String country;
 
     public Address() {
-        this.id = UUID.randomUUID();
     }
 
     public Address(String street, String city, String state, String zipCode, String country) {
-        this.id = UUID.randomUUID();
         this.street = street;
         this.city = city;
         this.state = state;
@@ -28,11 +24,11 @@ public class Address {
         this.country = country;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

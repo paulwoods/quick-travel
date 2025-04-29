@@ -11,7 +11,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/addresses")
@@ -33,7 +32,7 @@ public class AddressController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<AddressDto> read(@PathVariable UUID id) {
+    ResponseEntity<AddressDto> read(@PathVariable Long id) {
         Address address = addressRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Address not found"));
         return ResponseEntity.ok(convertToDto(address));
@@ -47,7 +46,7 @@ public class AddressController {
     }
 
     @PutMapping("/{id}")
-    ResponseEntity<AddressDto> update(@PathVariable UUID id, @RequestBody @Valid AddressDto addressDto) {
+    ResponseEntity<AddressDto> update(@PathVariable Long id, @RequestBody @Valid AddressDto addressDto) {
         if (!addressRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Address not found");
         }
@@ -59,7 +58,7 @@ public class AddressController {
     }
 
     @DeleteMapping("/{id}")
-    ResponseEntity<Void> delete(@PathVariable UUID id) {
+    ResponseEntity<Void> delete(@PathVariable Long id) {
         if (!addressRepository.existsById(id)) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Address not found");
         }
@@ -84,7 +83,7 @@ public class AddressController {
             try {
                 address.setId(addressDto.getId());
             } catch (IllegalArgumentException ignored) {
-                // Use default generated UUID if provided ID is invalid
+                // Use default generated Long if provided ID is invalid
             }
         }
         address.setStreet(addressDto.getStreet());

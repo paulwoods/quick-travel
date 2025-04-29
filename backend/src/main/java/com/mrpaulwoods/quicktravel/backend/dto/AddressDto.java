@@ -1,9 +1,7 @@
 package com.mrpaulwoods.quicktravel.backend.dto;
 
-import java.util.UUID;
-
 public class AddressDto {
-    private UUID id;
+    private Long id;
     private String street;
     private String city;
     private String state;
@@ -13,7 +11,7 @@ public class AddressDto {
     public AddressDto() {
     }
 
-    public AddressDto(UUID id, String street, String city, String state, String zipCode, String country) {
+    public AddressDto(Long id, String street, String city, String state, String zipCode, String country) {
         this.id = id;
         this.street = street;
         this.city = city;
@@ -22,11 +20,11 @@ public class AddressDto {
         this.country = country;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
