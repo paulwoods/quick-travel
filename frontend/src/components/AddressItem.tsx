@@ -7,7 +7,7 @@ interface AddressItemProps {
     onDelete: (id: string) => void;
 }
 
-export default function AddressItem({address, onEdit, onDelete}: AddressItemProps) {
+export const AddressItem = ({address, onEdit, onDelete}: AddressItemProps) => {
     return (
         <div className="address-item">
             <div className="address-content">
@@ -36,4 +36,4 @@ export default function AddressItem({address, onEdit, onDelete}: AddressItemProp
             </div>
         </div>
     );
-}
+};

@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import {Address} from '../types/Address';
-import AddressList from './AddressList';
-import AddressForm from './AddressForm';
+import {AddressList} from './AddressList';
+import {AddressForm} from './AddressForm';
 import '../styles/AddressManager.css';
 
 export const AddressManager = () => {

@@ -8,7 +8,7 @@ interface AddressFormProps {
     onCancel: () => void;
 }
 
-export default function AddressForm({address, onSave, onCancel}: AddressFormProps) {
+export const AddressForm = ({address, onSave, onCancel}: AddressFormProps) => {
     const [formData, setFormData] = useState<Omit<Address, 'id'>>({
         street: '',
         city: '',
@@ -122,4 +122,4 @@ export default function AddressForm({address, onSave, onCancel}: AddressFormProp
             </div>
         </form>
     );
-}
+};

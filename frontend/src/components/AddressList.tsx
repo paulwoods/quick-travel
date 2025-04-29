@@ -1,5 +1,5 @@
 import {Address} from '../types/Address';
-import AddressItem from './AddressItem';
+import {AddressItem} from './AddressItem';
 import '../styles/AddressList.css';
 
 interface AddressListProps {
@@ -8,7 +8,7 @@ interface AddressListProps {
     onDelete: (id: string) => void;
 }
 
-export default function AddressList({addresses, onEdit, onDelete}: AddressListProps) {
+export const AddressList = ({addresses, onEdit, onDelete}: AddressListProps) => {
     if (addresses.length === 0) {
         return (
             <div className="empty-list">
@@ -30,4 +30,4 @@ export default function AddressList({addresses, onEdit, onDelete}: AddressListPr
             ))}
         </div>
     );
-}
+};
