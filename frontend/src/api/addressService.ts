@@ -3,7 +3,7 @@ import {Address} from '../types/Address';
 
 // Define the address API endpoints
 const ENDPOINTS = {
-    ADDRESSES: '/addresses',
+    ADDRESSES: 'http://localhost:8080/api/addresses',
 };
 
 // Address service with CRUD operations
@@ -15,7 +15,7 @@ export const addressService = {
     },
 
     // Get a single address by ID
-    getById: async (id: string): Promise<Address> => {
+    getById: async (id: number): Promise<Address> => {
         const response = await apiClient.get(`${ENDPOINTS.ADDRESSES}/${id}`);
         return response.data;
     },
@@ -27,13 +27,13 @@ export const addressService = {
     },
 
     // Update an existing address
-    update: async (id: string, addressData: Omit<Address, 'id'>): Promise<Address> => {
+    update: async (id: number, addressData: Omit<Address, 'id'>): Promise<Address> => {
         const response = await apiClient.put(`${ENDPOINTS.ADDRESSES}/${id}`, addressData);
         return response.data;
     },
 
     // Delete an address
-    delete: async (id: string): Promise<void> => {
+    delete: async (id: number): Promise<void> => {
         await apiClient.delete(`${ENDPOINTS.ADDRESSES}/${id}`);
     },
 };
