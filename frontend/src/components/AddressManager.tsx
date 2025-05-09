@@ -97,11 +97,19 @@ export const AddressManager = () => {
         setIsFormVisible(false);
     };
 
-    const handleSubmitAddresses = (selectedAddresses: Address[]) => {
-        // Here you would typically send the selected addresses to a backend API
-        // For now, we'll just show an alert with the selected addresses
-        alert(`Submitted ${selectedAddresses.length} addresses`);
-        console.log('Submitted addresses:', selectedAddresses);
+    const handleSubmitAddresses = async (selectedAddresses: Address[]) => {
+        setIsLoading(true);
+        setError(null);
+        try {
+            const response = await addressService.submitAddresses(selectedAddresses);
+            alert(`Success: ${response}`);
+            console.log('Submitted addresses:', selectedAddresses);
+        } catch (err) {
+            console.error('Failed to submit addresses:', err);
+            setError('Failed to submit addresses. Please try again later.');
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (

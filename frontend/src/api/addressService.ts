@@ -4,6 +4,7 @@ import {Address} from '../types/Address';
 // Define the address API endpoints
 const ENDPOINTS = {
     ADDRESSES: 'http://localhost:8080/api/addresses',
+    TRAVEL: 'http://localhost:8080/api/travel',
 };
 
 // Address service with CRUD operations
@@ -35,5 +36,11 @@ export const addressService = {
     // Delete an address
     delete: async (id: number): Promise<void> => {
         await apiClient.delete(`${ENDPOINTS.ADDRESSES}/${id}`);
+    },
+
+    // Submit a list of addresses for travel planning
+    submitAddresses: async (addresses: Address[]): Promise<string> => {
+        const response = await apiClient.post(`${ENDPOINTS.TRAVEL}/addresses`, addresses);
+        return response.data;
     },
 };
