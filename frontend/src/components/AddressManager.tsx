@@ -97,6 +97,13 @@ export const AddressManager = () => {
         setIsFormVisible(false);
     };
 
+    const handleSubmitAddresses = (selectedAddresses: Address[]) => {
+        // Here you would typically send the selected addresses to a backend API
+        // For now, we'll just show an alert with the selected addresses
+        alert(`Submitted ${selectedAddresses.length} addresses`);
+        console.log('Submitted addresses:', selectedAddresses);
+    };
+
     return (
         <div className="address-manager">
             <div className="address-manager-header">
@@ -128,6 +135,7 @@ export const AddressManager = () => {
                     addresses={addresses}
                     onEdit={startEditing}
                     onDelete={handleDeleteAddress}
+                    onSubmit={handleSubmitAddresses}
                 />
             )}
         </div>

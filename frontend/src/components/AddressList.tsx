@@ -6,9 +6,10 @@ interface AddressListProps {
     addresses: Address[];
     onEdit: (address: Address) => void;
     onDelete: (id: number) => void;
+    onSubmit?: (addresses: Address[]) => void;
 }
 
-export const AddressList = ({addresses, onEdit, onDelete}: AddressListProps) => {
+export const AddressList = ({addresses, onEdit, onDelete, onSubmit}: AddressListProps) => {
     if (addresses.length === 0) {
         return (
             <div className="empty-list">
@@ -28,6 +29,14 @@ export const AddressList = ({addresses, onEdit, onDelete}: AddressListProps) => 
                     onDelete={onDelete}
                 />
             ))}
+            {onSubmit && (
+                <button
+                    className="submit-btn"
+                    onClick={() => onSubmit(addresses)}
+                >
+                    Submit
+                </button>
+            )}
         </div>
     );
 };
